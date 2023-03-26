@@ -1,30 +1,35 @@
 package com.pyxisit.kadem.entities;
 
 
+import lombok.*;
+
 import javax.persistence.*;
 
 import java.util.List;
 
 @Entity
-public class Etudiant{
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Etudiant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String idEtudiant;
+    @Setter(AccessLevel.NONE)
+    private Integer etudiantId;
 
     private String prenomE;
 
     private String nomE;
 
-    @Enumerated(EnumType.STRING)
-    private Option option;
+    private Option opt;
 
     @ManyToOne
     private Department department;
 
-    @OneToMany(mappedBy = "etudiant")
+    @OneToMany(mappedBy="etudiant")
     private List<Contrat> contrats;
 
-    @ManyToMany(mappedBy="etudiants")
+    @ManyToMany
     private List<Equipe> equipes;
 }
