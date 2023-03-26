@@ -12,4 +12,6 @@ public interface IDepartmentServices {
     Department updateDepartement (Department d);
 
     Department retrieveDepartement (Integer idDepart);
+
+    public List<Department> retrieveDepartementsByUniversite(Integer idUniversite);
 }
