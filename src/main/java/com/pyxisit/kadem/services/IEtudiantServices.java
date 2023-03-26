@@ -1,18 +1,24 @@
 package com.pyxisit.kadem.services;
 
 import com.pyxisit.kadem.entities.Etudiant;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 public interface IEtudiantServices {
-    public void ajouterEtudiant(Etudiant e);
+    void ajouterEtudiant(Etudiant e);
 
-    public void updateEtudiant(Etudiant e);
+    void updateEtudiant(Etudiant e);
 
-    public List<Etudiant> getAllEtudiants();
+    List<Etudiant> getAllEtudiants();
 
-    public Etudiant getEtudiant(Integer id);
+    Etudiant getEtudiant(Integer id);
 
-    public void deleteEtudiant(Integer id);
+    void deleteEtudiant(Integer id);
+
+    void assignEtudiantToDepartment(Integer etudiantId, Integer departmentId);
+
+    Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe);
+
+    List<Etudiant> getEtudiantsByDepartment(Integer departmentId);
+
 }
